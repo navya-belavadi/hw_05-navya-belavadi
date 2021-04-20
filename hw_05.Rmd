@@ -1,0 +1,29 @@
+---
+title: "Homework 05: Logistic regression"
+subtitle: "Due: Wednesday, April 21 11:59pm ET"
+author: ""
+date: ""
+output:
+  pdf_document: default
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, 
+                      warning = FALSE, comment = "#>", highlight = TRUE)
+```
+
+# Packages
+
+```{r packages}
+library(tidyverse)
+```
+
+# Data
+
+```{r load_data}
+donner <- read_csv("data/donner.csv")
+```
+
+# Exercises
+
+## Exercise 1

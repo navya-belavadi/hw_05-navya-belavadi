@@ -1,0 +1,91 @@
+name,family,age,sex,survived
+Antoine,Other,23,Man,0
+"Breen, Edward",Breen,13,Man,1
+"Breen, Margaret I.",Breen,1,Woman,1
+"Breen, James",Breen,5,Man,1
+"Breen, John",Breen,14,Man,1
+"Breen, Mary",Breen,40,Woman,1
+"Breen, Patrick",Breen,51,Man,1
+"Breen, Patrick Jr.",Breen,9,Man,1
+"Breen, Peter",Breen,3,Man,1
+"Breen, Simon",Breen,8,Man,1
+"Burger, Charles",Other,30,Man,0
+"Denton, John",Other,28,Man,0
+"Dolan, Patrick",Other,40,Man,0
+"Donner, Elitha Cumi",Donner,13,Woman,1
+"Donner, Eliza Poor",Donner,3,Woman,1
+"Donner, Elizabeth",Donner,45,Woman,0
+"Donner, Francis E.",Donner,6,Woman,1
+"Donner, George",Donner,62,Man,0
+"Donner, George Jr.",Donner,9,Man,1
+"Donner, Georgia Ann",Donner,4,Woman,1
+"Donner, Isaac",Donner,5,Man,0
+"Donner, Jacob",Donner,65,Man,0
+"Donner, Leanna",Donner,11,Woman,1
+"Donner, Lewis",Donner,3,Man,0
+"Donner, Mary",Donner,7,Woman,1
+"Donner, Samuel",Donner,4,Man,0
+"Donner, Tamsen",Donner,44,Woman,0
+"Eddy, Eleanor",Eddy,25,Woman,0
+"Eddy, James",Eddy,3,Man,0
+"Eddy, Margaret",Eddy,1,Woman,0
+"Eddy, William",Eddy,28,Man,1
+"Elliot, Milton",Other,28,Man,0
+"Fosdick, Jay",FosdWolf,23,Man,0
+"Fosdick, Sarah",FosdWolf,22,Woman,1
+"Foster, Sarah",MurFosPik,23,Woman,1
+"Foster, William",MurFosPik,28,Man,1
+"Foster, Jeremiah",MurFosPik,1,Man,0
+"Graves, Eleanor",Graves,15,Woman,1
+"Graves, Elizabeth",Graves,1,Woman,1
+"Graves, Elizabeth C.",Graves,47,Woman,0
+"Graves, Franklin W",Graves,57,Man,0
+"Graves, Franklin W J",Graves,5,Man,0
+"Graves, Jonathan",Graves,7,Man,1
+"Graves, Lovina",Graves,12,Woman,1
+"Graves, Mary Ann",Graves,20,Woman,1
+"Graves, Nancy",Graves,9,Woman,1
+"Graves, William",Graves,18,Man,1
+"Halloran, Luke",Other,25,Man,0
+"Hardkoop, Mr.",Other,60,Man,0
+"Herron, William",Other,25,Man,1
+"Hook, William",Other,12,Man,0
+"Hook, Solomon",Other,14,Man,1
+"James, Noah",Other,20,Man,1
+"Keseberg, Ada",Keseberg,3,Woman,0
+"Keseberg, Lewis",Keseberg,32,Man,1
+"Keseberg, Lewis Jr.",Keseberg,1,Man,0
+"Keseberg, Phillipine",Keseberg,32,Woman,1
+"Keyes, Sarah",Reed,70,Woman,0
+Luis,Other,27,Man,0
+"McCutchen, Almanda",McCutchen,24,Woman,1
+"McCutchen, William",McCutchen,30,Man,1
+"McCutchen, Harriet",McCutchen,1,Woman,0
+"Miller, Hiram O.",Other,30,Man,1
+"Murphy, John Landrum",MurFosPik,15,Man,0
+"Murphy, Lavina",MurFosPik,36,Woman,0
+"Murphy, Lemuel",MurFosPik,12,Man,0
+"Murphy, Mary M.",MurFosPik,14,Woman,1
+"Murphy, Simon Peter",MurFosPik,8,Man,1
+"Pike, Catherine",MurFosPik,1,Woman,0
+"Pike, Harriet",MurFosPik,21,Woman,1
+"Pike, Naomi",MurFosPik,2,Woman,1
+"Pike, William",MurFosPik,25,Man,0
+"Reed, James",Reed,46,Man,1
+"Reed, James Jr.",Reed,6,Man,1
+"Reed, Margaret",Reed,32,Woman,1
+"Reed, Martha Jane",Reed,9,Woman,1
+"Reed, Thomas Keyes",Reed,4,Man,1
+"Reed, Virginia E.",Reed,13,Woman,1
+"Reinhardt, Joseph",Other,30,Man,0
+Salvador,Other,23,Man,0
+"Shoemaker, Samuel",Other,25,Man,0
+"Smith, James",Other,25,Man,0
+"Snyder, John",Other,25,Man,0
+"Spitzer, Augustus",Other,30,Man,0
+"Stanton, Charles",Other,35,Man,0
+"Trubode, Jean B.",Other,23,Man,1
+"Williams, Baylis",Other,24,Man,0
+"Williams, Eliza",Other,25,Woman,1
+"Wolfinger, Doris",FosdWolf,20,Woman,1
+"Wolfinger, Mr.",FosdWolf,24,Man,0
