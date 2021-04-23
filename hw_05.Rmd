@@ -28,15 +28,19 @@ donner <- read_csv("data/donner.csv")
 
 ## Exercise 1
 ```{r ex1.1}
-sex_survival <- donner %>% group_by(sex) %>% mutate(survived = ifelse(survived == 0, "Did not Survive", sex_survival))
+sex_survival <- donner %>% group_by(sex) %>% mutate(survived = 
+ifelse(survived == 0, "Did not Survive", "Survived"))
 ```
 
 ```{r ex1.2}
 donner %>% group_by(sex) %>%
-  ggplot(data = sex_survival, mapping = aes(x = sex, fill = survived)) + geom_bar(position = "fill") + labs(title = "Proportion of Population versus Gender")
+  ggplot(data = sex_survival, mapping = aes(x = sex, fill = survived)) + 
+  geom_bar(position = "fill") + labs(title = "Proportion of Population versus Gender", x = "Gender", y = "Population Proportion", fill = "Survived")
 ```
 
-Since the proportion of the population that survived is greater for women than men, the relationship between sex and survival is that females have a higher chance of survival than males. 
+Since the proportion of the population that survived is greater for women 
+than men, the relationship between sex and survival is that females have a 
+higher chance of survival than males. 
 
 ## Exercise 2
 ```{r ex2}
@@ -44,8 +48,11 @@ age_survival <- donner %>%
   mutate(survived = ifelse(survived == 0, "Did not Survive", "Survived"))
 age_survival
 
-ggplot(data = age_survival, mapping = aes(x = survived, y = age)) + geom_boxplot() + labs(title = "Age versus Survival", x = "Survived?", y = "Age")
+ggplot(data = age_survival, mapping = aes(x = survived, y = age)) + 
+  geom_boxplot() + labs(title = "Age versus Survival", x = "Survived?", 
+  y = "Age")
 ```
+Since the median age of individuals that did not survive is greater than the median age of those who did survive, it can be inferred that younger individuals are more likely to survive than older individuals. 
 
 ## Exercise 3
 ```{r ex3}
@@ -58,10 +65,13 @@ Logistic regression model:
 log(p/(1-p)) = 0.39237 + 1.20679sex - 0.033798age
 
 ## Exercise 5
+In the context of the problem, this is the baseline or the y-intercept which means this indicates the odds of survival given that the individual is male and age 0. So, with age and sex held constant, the expected odds of survival is 1.48049. 
 
 ## Exercise 6
+In the context of the problem, this indicates how, holding sex constant, the odds of survival are for each year increase on average for males. It can be said that the odds of survival are expected to be multiplies by 0.9668 for each increase in age by 1 year. 
 
 ## Exercise 7
+In the context of the problem, this indicates how the odds of survival compare for females over males when holding age constant. The odds of survival for females is 3.3427 times more likely than for males when holding age constant. 
 
 ## Exercise 8
 For a 60 year old man:
@@ -74,7 +84,8 @@ tibble(
   pull(p)
 )
 ```
-Based on this logistic model, the predicted probability of survival for a 60 year old man is 0.1630737.
+Based on this logistic model, the predicted probability of survival for a 60 
+year old man is 0.1630737.
 
 For a 20 year old man:
 ```{r ex8.2}
@@ -86,7 +97,8 @@ tibble(
   pull(p)
 )
 ```
-Based on this logistic model, the predicted probability of survival for a 20 year old man is 0.4295716.
+Based on this logistic model, the predicted probability of survival for a 20 
+year old man is 0.4295716.
 
 For a newborn female:
 ```{r ex8.3}
@@ -98,7 +110,8 @@ tibble(
   pull(p)
 )
 ```
-Based on this logistic model, the predicted probability of survival for a newborn (O year old) female is 0.8319002.
+Based on this logistic model, the predicted probability of survival for a 
+newborn (O year old) female is 0.8319002.
 
 
 ## Exercise 9
@@ -108,12 +121,24 @@ tibble(
   sex = rep(c("Man", "Woman"), times = 70) %>%
     augment(log_mod, newdata = .) %>%
     mutate(predicted_p = exp(.fitted) / (1 + exp(.fitted)) %>%
-             ggplot(aes(x = age, y = predicted_p, color = sex)) + geom_line(size = 1.5) + theme_minimal(base_size = 14) + scale_color_manual(values = c("blue", "red")) + labs(title = "Predicted Probability Values versus Age Graph", subtitle = "Colored by Political Party", x = "Age", y = "Predicted Probability", color = "Gender")
+             ggplot(aes(x = age, y = predicted_p, color = sex)) + 
+             geom_line(size = 1.5) + theme_minimal(base_size = 14) + 
+             scale_color_manual(values = c("blue", "red")) + labs(title = 
+            "Predicted Probability Values versus 
+            Age Graph", subtitle = "Colored by Gender", x = "Age", y = 
+            "Predicted Probability of Survival", color = "Gender")
 ))
 ```
-
-
+Based on this graph, it is apparent that as age increases, the predicted 
+probability of survival decreases. Women always have a higher probability of 
+survival than men regardless of age.
 
 ## Exercise 10
+p = (e^(β0+β1x1+β2x2+...+βkxk))/(1 + e^(β0+β1x1+β2x2+···+βkxk)) > 0.75
+p = (e^(0.39237 + 1.20679sex − 0.033798age))/(1 + e^(0.39237+1.20679 sex− 0.033798age)) > 0.75
+e^(0.39237 + 1.20679sex - 0.033798age) = 0.75 + 0.75e^(0.39237 + 1.20679sex - 0.033798age)
+
+Since the gender of this member is female, the dummy variable sex is 1. 
+e^
 
 ## Exercise 11
