@@ -149,7 +149,8 @@ with age increase is not selective for males or females.
 p = (e^(B0+B1x1+B2x2+...+Bkxk))/(1 + e^(B0+B1x1+B2x2+···+Bkxk)) > 0.75
 p = (e^(0.39237 + 1.20679sex − 0.033798age))/(1 + e^(0.39237+1.20679 sex− 
 0.033798age)) > 0.75
-e^(0.39237 + 1.20679sex - 0.033798age) = 0.75 + 0.75e^(0.39237 + 1.20679sex - 0.033798age)
+e^(0.39237 + 1.20679sex - 0.033798age) = 0.75 + 0.75e^(0.39237 + 1.20679sex - 
+0.033798age)
 
 Since the gender of this member is female, the dummy variable sex is 1. 
 e^(0.39237+1.20679(1)−0.033798 age) = 0.75 + 
@@ -171,7 +172,8 @@ age = 14.8366116
 
 Based on the logistic regression model, a female member of the Donner party has 
 to be under 14.84 years to have a predicted probability of survival higher than 
-0.75. But, since age is of type int, this is rounded down to age 14 so the drawn conclusion is that a female Donner party member must be less than 14 years old 
+0.75. But, since age is of type int, this is rounded down to age 14 so the drawn
+conclusion is that a female Donner party member must be less than 14 years old 
 in order to have a predicted probability of survival greater than 0.75. 
 
 ## Exercise 11
@@ -180,7 +182,8 @@ females and 56 males, the sex variable has an unequal distribution and could
 cause a skew in the data. 
 Also, there are linearity assumptions -- there is assumed independence between 
 variables age, gender and survival. However, these variables could have some 
-sort of relationship, such as say between gender and survival in that females scientifically have longer life spans than males. The coefficient estimates 
+sort of relationship, such as say between gender and survival in that females 
+scientifically have longer life spans than males. The coefficient estimates 
 could therefore be unreliable if the predictors are correlated due to 
 confounding variables (another being if the individual has pre-existing health 
 conditions and therefore less chance of survival).
