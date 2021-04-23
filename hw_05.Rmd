@@ -124,7 +124,7 @@ newborn (O year old) female is 0.8319002.
 
 
 ## Exercise 9
-```{r}
+```{r ex9}
 tibble(
   age = rep(1:70, times = 2),
   sex = rep(c("Man", "Woman"), times = 70)) %>%
@@ -163,7 +163,7 @@ After subtracting the common terms from both sides, and dividing each side by
 e^(1.60006−0.033798age) = 3
 
 Then taking the natural log of each side and solving for age:
-ln(e^(1.60006−0.033798 age)) = ln(3) 
+ln(e^(1.60006−0.033798age)) = ln(3) 
 1.60006 − 0.033798 age = 1.0986122 
 1.60006 − 0.033798 age = 1.0986122 
 
