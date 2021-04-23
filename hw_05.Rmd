@@ -35,7 +35,9 @@ ifelse(survived == 0, "Did not Survive", "Survived"))
 ```{r ex1.2}
 donner %>% group_by(sex) %>%
   ggplot(data = sex_survival, mapping = aes(x = sex, fill = survived)) + 
-  geom_bar(position = "fill") + labs(title = "Proportion of Population versus Gender", x = "Gender", y = "Population Proportion", fill = "Survived")
+  geom_bar(position = "fill") + labs(title = "Proportion of Population versus 
+                                     Gender", x = "Gender", y = "Population 
+                                     Proportion", fill = "Survived")
 ```
 
 Since the proportion of the population that survived is greater for women 
@@ -52,7 +54,9 @@ ggplot(data = age_survival, mapping = aes(x = survived, y = age)) +
   geom_boxplot() + labs(title = "Age versus Survival", x = "Survived?", 
   y = "Age")
 ```
-Since the median age of individuals that did not survive is greater than the median age of those who did survive, it can be inferred that younger individuals are more likely to survive than older individuals. 
+Since the median age of individuals that did not survive is greater than the 
+median age of those who did survive, it can be inferred that younger individuals
+are more likely to survive than older individuals. 
 
 ## Exercise 3
 ```{r ex3}
@@ -65,24 +69,31 @@ Logistic regression model:
 log(p/(1-p)) = 0.39237 + 1.20679sex - 0.033798age
 
 ## Exercise 5
-In the context of the problem, this is the baseline or the y-intercept which means this indicates the odds of survival given that the individual is male and age 0. So, with age and sex held constant, the expected odds of survival is 1.48049. 
+In the context of the problem, this is the baseline or the y-intercept which 
+means this indicates the odds of survival given that the individual is male and 
+age 0. So, with age and sex held constant, the expected odds of survival is 
+1.48049. 
 
 ## Exercise 6
-In the context of the problem, this indicates how, holding sex constant, the odds of survival are for each year increase on average for males. It can be said that the odds of survival are expected to be multiplies by 0.9668 for each increase in age by 1 year. 
+In the context of the problem, this indicates how, holding sex constant, the 
+odds of survival are for each year increase on average for males. It can be 
+said that the odds of survival are expected to be multiplies by 0.9668 for 
+each increase in age by 1 year. 
 
 ## Exercise 7
-In the context of the problem, this indicates how the odds of survival compare for females over males when holding age constant. The odds of survival for females is 3.3427 times more likely than for males when holding age constant. 
+In the context of the problem, this indicates how the odds of survival compare 
+for females over males when holding age constant. The odds of survival for 
+females is 3.3427 times more likely than for males when holding age constant. 
 
 ## Exercise 8
 For a 60 year old man:
 ```{r ex8.1}
 tibble(
   age = 60,
-  sex = factor("Man") %>%
+  sex = factor("Man")) %>%
   augment(log_mod, newdata = .) %>%
   mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
   pull(p)
-)
 ```
 Based on this logistic model, the predicted probability of survival for a 60 
 year old man is 0.1630737.
@@ -91,11 +102,10 @@ For a 20 year old man:
 ```{r ex8.2}
 tibble(
   age = 20,
-  sex = factor("Man") %>%
+  sex = factor("Man")) %>%
   augment(log_mod, newdata = .) %>%
   mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
   pull(p)
-)
 ```
 Based on this logistic model, the predicted probability of survival for a 20 
 year old man is 0.4295716.
@@ -104,11 +114,10 @@ For a newborn female:
 ```{r ex8.3}
 tibble(
   age = 0,
-  sex = factor("Woman") %>%
+  sex = factor("Woman")) %>%
   augment(log_mod, newdata = .) %>%
   mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
   pull(p)
-)
 ```
 Based on this logistic model, the predicted probability of survival for a 
 newborn (O year old) female is 0.8319002.
@@ -118,27 +127,60 @@ newborn (O year old) female is 0.8319002.
 ```{r}
 tibble(
   age = rep(1:70, times = 2),
-  sex = rep(c("Man", "Woman"), times = 70) %>%
+  sex = rep(c("Man", "Woman"), times = 70)) %>%
     augment(log_mod, newdata = .) %>%
-    mutate(predicted_p = exp(.fitted) / (1 + exp(.fitted)) %>%
+    mutate(predicted_p = exp(.fitted) / (1 + exp(.fitted))) %>%
              ggplot(aes(x = age, y = predicted_p, color = sex)) + 
              geom_line(size = 1.5) + theme_minimal(base_size = 14) + 
              scale_color_manual(values = c("blue", "red")) + labs(title = 
             "Predicted Probability Values versus 
             Age Graph", subtitle = "Colored by Gender", x = "Age", y = 
             "Predicted Probability of Survival", color = "Gender")
-))
+
 ```
 Based on this graph, it is apparent that as age increases, the predicted 
-probability of survival decreases. Women always have a higher probability of 
-survival than men regardless of age.
+probability of survival decreases regardless of gender. Women always have a 
+higher probability of 
+survival than men regardless of age, but since the curve of best fit for both 
+males and females decrease at relatively the same rate, the probability decrease
+with age increase is not selective for males or females. 
 
 ## Exercise 10
-p = (e^(β0+β1x1+β2x2+...+βkxk))/(1 + e^(β0+β1x1+β2x2+···+βkxk)) > 0.75
-p = (e^(0.39237 + 1.20679sex − 0.033798age))/(1 + e^(0.39237+1.20679 sex− 0.033798age)) > 0.75
+p = (e^(B0+B1x1+B2x2+...+Bkxk))/(1 + e^(B0+B1x1+B2x2+···+Bkxk)) > 0.75
+p = (e^(0.39237 + 1.20679sex − 0.033798age))/(1 + e^(0.39237+1.20679 sex− 
+0.033798age)) > 0.75
 e^(0.39237 + 1.20679sex - 0.033798age) = 0.75 + 0.75e^(0.39237 + 1.20679sex - 0.033798age)
 
 Since the gender of this member is female, the dummy variable sex is 1. 
-e^
+e^(0.39237+1.20679(1)−0.033798 age) = 0.75 + 
+0.75e^(0.39237+1.20679(1)−0.033798age)
+e^(1.60006−0.033798age) = 0.75 + 0.75e^(1.60006−0.033798age)
+
+After subtracting the common terms from both sides, and dividing each side by 
+0.25:
+0.25e^(1.60006−0.033798age) = 0.75
+e^(1.60006−0.033798age) = 3
+
+Then taking the natural log of each side and solving for age:
+ln(e^(1.60006−0.033798 age)) = ln(3) 
+1.60006 − 0.033798 age = 1.0986122 
+1.60006 − 0.033798 age = 1.0986122 
+
+−0.033798 age = −0.5014478 
+age = 14.8366116 
+
+Based on the logistic regression model, a female member of the Donner party has 
+to be under 14.84 years to have a predicted probability of survival higher than 
+0.75. But, since age is of type int, this is rounded down to age 14 so the drawn conclusioon is that a female Donner party member must be less than 14 years old 
+in order to have a predicted probability of survival greater than 0.75. 
 
 ## Exercise 11
+Given the data, there are a few limitations. One, is that since there are 34 
+females and 56 males, the sex variable has an unequal distribution and could 
+cause a skew in the data. 
+Also, there are linearity assumptions -- there is assumed independence between 
+variables age, gender and survival. However, these variables could have some 
+sort of relationship, such as say between gender and survival in that females scientifically have longer life spans than males. The coefficient estimates 
+could therefore be unreliable if the predictors are correlated due to 
+confounding variables (another being if the individual has pre-existing health 
+conditions and therefore less chance of survival).
