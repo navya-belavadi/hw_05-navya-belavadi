@@ -171,7 +171,7 @@ age = 14.8366116
 
 Based on the logistic regression model, a female member of the Donner party has 
 to be under 14.84 years to have a predicted probability of survival higher than 
-0.75. But, since age is of type int, this is rounded down to age 14 so the drawn conclusioon is that a female Donner party member must be less than 14 years old 
+0.75. But, since age is of type int, this is rounded down to age 14 so the drawn conclusion is that a female Donner party member must be less than 14 years old 
 in order to have a predicted probability of survival greater than 0.75. 
 
 ## Exercise 11
