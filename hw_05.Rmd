@@ -27,13 +27,24 @@ donner <- read_csv("data/donner.csv")
 # Exercises
 
 ## Exercise 1
-```{r ex1}
+```{r ex1.1}
 sex_survival <- donner %>% group_by(sex) %>% mutate(survived = ifelse(survived == 0, "Did not Survive", sex_survival))
 ```
 
+```{r ex1.2}
+donner %>% group_by(sex) %>%
+  ggplot(data = sex_survival, mapping = aes(x = sex, fill = survived)) + geom_bar(position = "fill") + labs(title = "Proportion of Population versus Gender")
+```
+
+Since the proportion of the population that survived is greater for women than men, the relationship between sex and survival is that females have a higher chance of survival than males. 
+
 ## Exercise 2
 ```{r ex2}
+age_survival <- donner %>%
+  mutate(survived = ifelse(survived == 0, "Did not Survive", "Survived"))
+age_survival
 
+ggplot(data = age_survival, mapping = aes(x = survived, y = age)) + geom_boxplot() + labs(title = "Age versus Survival", x = "Survived?", y = "Age")
 ```
 
 ## Exercise 3
@@ -53,7 +64,56 @@ log(p/(1-p)) = 0.39237 + 1.20679sex - 0.033798age
 ## Exercise 7
 
 ## Exercise 8
+For a 60 year old man:
+```{r ex8.1}
+tibble(
+  age = 60,
+  sex = factor("Man") %>%
+  augment(log_mod, newdata = .) %>%
+  mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
+  pull(p)
+)
+```
+Based on this logistic model, the predicted probability of survival for a 60 year old man is 0.1630737.
+
+For a 20 year old man:
+```{r ex8.2}
+tibble(
+  age = 20,
+  sex = factor("Man") %>%
+  augment(log_mod, newdata = .) %>%
+  mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
+  pull(p)
+)
+```
+Based on this logistic model, the predicted probability of survival for a 20 year old man is 0.4295716.
+
+For a newborn female:
+```{r ex8.3}
+tibble(
+  age = 0,
+  sex = factor("Woman") %>%
+  augment(log_mod, newdata = .) %>%
+  mutate(p = exp(.fitted) / (1 + exp(.fitted))) %>%
+  pull(p)
+)
+```
+Based on this logistic model, the predicted probability of survival for a newborn (O year old) female is 0.8319002.
+
 
 ## Exercise 9
+```{r}
+tibble(
+  age = rep(1:70, times = 2),
+  sex = rep(c("Man", "Woman"), times = 70) %>%
+    augment(log_mod, newdata = .) %>%
+    mutate(predicted_p = exp(.fitted) / (1 + exp(.fitted)) %>%
+             ggplot(aes(x = age, y = predicted_p, color = sex)) + geom_line(size = 1.5) + theme_minimal(base_size = 14) + scale_color_manual(values = c("blue", "red")) + labs(title = "Predicted Probability Values versus Age Graph", subtitle = "Colored by Political Party", x = "Age", y = "Predicted Probability", color = "Gender")
+))
+```
+
+
 
 ## Exercise 10
+
+## Exercise 11
